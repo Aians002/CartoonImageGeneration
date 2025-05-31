@@ -4,7 +4,7 @@ This project implements a cartoon image generator that creates 128x128 cartoon f
 
 Dataset
 
-The model uses the CartoonSet100k dataset, a synthetic cartoon face dataset provided by Google LLC under the Creative Commons Attribution 4.0 International License. The dataset includes images and associated attribute files, which are preprocessed into tensors for training.
+The model uses the CartoonSet100k dataset, a synthetic cartoon face dataset provided by Google LLC under the Creative Commons Attribution 4.0 International License. The dataset includes images and associated attribute files, which are preprocessed into tensors for training. Download it from : https://google.github.io/cartoonset/download.html
 
 Preprocessing
 
