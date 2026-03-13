@@ -1,0 +1,54 @@
+name: PR Quality Check
+
+on:
+    pull_request:
+        branches:
+            - test_pr_check
+        types:
+            - opened
+            - synchronize
+            - reopened
+
+permissions:
+    contents: read
+    pull-requests: write
+
+concurrency:
+    group: pr-quality-check-${{ github.event.pull_request.number }}
+    cancel-in-progress: true
+
+jobs:
+    pr-quality-check:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            pull-requests: write
+            issues: write
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: '3.12.5'
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r requirements.txt
+
+            - name: Run PR Quality Check
+              env:
+                  PR_NUMBER: ${{ github.event.pull_request.number }}
+                  REPO_NAME: ${{ github.repository }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+                  PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
+                  HF_TOKEN: ${{ secrets.HUGGINGFACEHUB_API_TOKEN }}
+                  LANGCHAIN_API_KEY: ${{ secrets.LANGCHAIN_API_KEY }}
+                  LANGCHAIN_ENDPOINT: ${{ secrets.LANGCHAIN_ENDPOINT }}
+                  LANGCHAIN_PROJECT: ${{ secrets.LANGCHAIN_PROJECT }}
+                  LANGCHAIN_TRACING_V2: ${{ secrets.LANGCHAIN_TRACING_V2 }}
+              run: |
+                  python pr_reviewer.py

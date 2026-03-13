@@ -1,0 +1,10 @@
+PyGithub==2.8.1
+langchain==1.2.12
+langchain-huggingface==1.2.1
+langchain-pinecone==0.2.13
+langchain-community==0.4.1
+langchain-google-genai==4.2.1
+langgraph==1.1.1
+pinecone==7.3.0
+sentence-transformers==5.2.3
+pydantic==2.12.5
