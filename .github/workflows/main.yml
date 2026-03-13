@@ -3,7 +3,7 @@ name: PR Quality Check
 on:
     pull_request:
         branches:
-            - test_pr_check
+            - test_dev
         types:
             - opened
             - synchronize
@@ -42,7 +42,7 @@ jobs:
               env:
                   PR_NUMBER: ${{ github.event.pull_request.number }}
                   REPO_NAME: ${{ github.repository }}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
                   GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
                   PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
                   HF_TOKEN: ${{ secrets.HUGGINGFACEHUB_API_TOKEN }}
