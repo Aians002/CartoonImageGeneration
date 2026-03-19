@@ -20,3 +20,5 @@ reviewable_extensions:
   - ".js"
   - ".ts"
   - ".java"
+  - ".yml"
+  - ".md"
