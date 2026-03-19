@@ -1,0 +1,22 @@
+style_guide: ".github/style_guide.md"
+
+llm:
+  provider: "gemini" # gemini | openai | groq | anthropic | huggingface
+  model: "gemini-3.1-flash-lite-preview"
+
+embedding:
+  provider: "gemini" # openai | gemini | huggingface
+  model: "gemini-embedding-001" # or specific embedding model like "text-embedding-3-small"
+
+vector_db:
+  provider: "chroma" # chroma | faiss
+  index_name: "sentinel-style-guide"
+
+cost_tracking: true
+max_files_per_pr: 20
+top_k_rules: 4
+reviewable_extensions:
+  - ".py"
+  - ".js"
+  - ".ts"
+  - ".java"
