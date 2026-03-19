@@ -1,4 +1,4 @@
-name: CodeSentinel PR Review
+name: CodeCheck PR Review
 
 on:
   pull_request:
@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run CodeSentinel
-        uses: Akpguj/CodeSentinel@v1.0.2
+      - name: Run CodeCheck
+        uses: Akpguj/CodeCheck@v2.0.0
         with:
           google_api_key: ${{ secrets.GOOGLE_API_KEY }}
         env:
