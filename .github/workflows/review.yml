@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run CodeSentinel
-        uses: Akpguj/CodeSentinel@v1.0.0
+        uses: Akpguj/CodeSentinel@v1.0.1
         with:
           google_api_key: ${{ secrets.GOOGLE_API_KEY }}
         env:
